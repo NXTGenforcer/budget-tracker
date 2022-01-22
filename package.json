@@ -6,7 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "lite-server": "lite-server"
+    "production": "npm run build && node server.js",
+    "develop": "concurrently \"npm run server\" \"cd public && npm run start\"",
+    "server": "nodemon server.js --ignore public",
+    "build": "cd public && npm run build",
+    "install": "cd public && npm install",
+    "public": "cd public && npm start"
   },
   "repository": {
     "type": "git",
@@ -21,9 +26,10 @@
   "dependencies": {
     "compression": "^1.7.4",
     "express": "^4.17.1",
-    "lite-server": "^2.5.3",
     "mongoose": "^5.5.15",
-    "morgan": "^1.9.1",
-    "pwa-installer": "^0.1.0"
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0"
   }
 }
