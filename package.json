@@ -10,7 +10,7 @@
     "develop": "concurrently \"npm run server\" \"cd public && npm run start\"",
     "server": "nodemon server.js --ignore public",
     "build": "cd public && npm run build",
-    "install": "cd public && npm install",
+    "install": "npm install && cd public && npm install",
     "public": "cd public && npm start"
   },
   "repository": {
